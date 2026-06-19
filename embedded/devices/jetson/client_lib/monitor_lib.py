@@ -14,7 +14,7 @@ def _create_json_message(component: str, data: dict) -> str:
         "device": "NVIDIA_Jetson",
         "component": component, 
         "type": "event", # "event" para dados de um componente da jetson/task das ESP, "telemetry" para dados de monitoramento de rede e hardware 
-        "data": data # dados efetivamente a sereme enviados, formato JSON
+        "data": data # dados a serem enviados, formato JSON
     }
 
     return json.dumps(message) + "\n"
@@ -28,12 +28,12 @@ def _send_worker(message: str):
         print("Mensagem enviada com sucesso para o Monitor Jetson.")
 
     except Exception as e:
-        print(e)
+        print(f"2: {e}")
     
     finally:
         client.close()    
 
 def send_to_monitor(component: str, data: dict):
     message = _create_json_message(component, data)
-    thread = threading.Thread(target=_send_worker, args= (message))
+    thread = threading.Thread(target=_send_worker, args= (message,))
     thread.start()
