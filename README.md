@@ -1,3 +1,11 @@
+---
+
+# Resultado dos testes
+
+[![Status do QA Central](https://github.com/Projeto-Guarda-Chuva/.github/actions/workflows/qa-t21.yml/badge.svg)](https://github.com/Projeto-Guarda-Chuva/.github/actions)
+
+---
+
 # Guia de Utilização da Biblioteca
 
 Esse é um guia de utilização da biblioteca.
@@ -186,6 +194,21 @@ GET_command(
 
 ESP_LOGI(TAG, "Resposta: %s", response);
 ```
+
+## 🔧 Configuração do Git Hooks
+
+Antes de começar a desenvolver, execute o script de configuração dos hooks do Git:
+
+```bash
+bash scripts/setup.sh
+```
+
+Esse comando configura o Git para utilizar os hooks versionados no repositório, garantindo que verificações automáticas sejam executadas antes de operações como `git push`.
+
+Após a execução, os hooks serão carregados a partir da pasta `.githooks`.
+
+> É necessário executar esse comando apenas uma vez após clonar o repositório.
+
 
 ## Fluxo básico da comunicação
 
